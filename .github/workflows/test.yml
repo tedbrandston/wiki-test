@@ -4,9 +4,11 @@ on: [gollum]
 
 jobs:
   sync:
-    name: test
+
     runs-on: ubuntu-latest
+
     steps:
+    - uses: actions/checkout@v2
     - name: a
       run: ls
     - name: b
