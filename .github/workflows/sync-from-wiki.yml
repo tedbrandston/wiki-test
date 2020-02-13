@@ -1,0 +1,22 @@
+name: sync-from-wiki
+
+on: gollum
+
+jobs:
+  sync:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: a
+      run: echo ${{ github.repository }}.wiki
+    - name: add remote
+      run: git remote add wiki ${{ github.repository }}.wiki
+    - name: fetch
+      run: git fetch wiki
+    - name: merge
+      run: git merge wiki/master
+
