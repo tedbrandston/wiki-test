@@ -1,0 +1,14 @@
+name: test
+
+on: gollum
+
+jobs:
+  sync:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: a
+      run: ls
+    - name: b
+      run: test.py
+      shell: python
