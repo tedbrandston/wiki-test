@@ -1,6 +1,6 @@
 name: test
 
-on: gollum
+on: [gollum]
 
 jobs:
   sync:
