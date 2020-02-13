@@ -1,16 +1,16 @@
 name: test
 
-on: [gollum]
+on: gollum
 
 jobs:
   sync:
-
+    name: test
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
     - name: a
       run: ls
     - name: b
-      run: test.py
+      run: ./test.py
+    - name: c
+      run: ./test.py
       shell: python
