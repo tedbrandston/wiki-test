@@ -12,9 +12,9 @@ jobs:
       with:
         fetch-depth: 0
     - name: a
-      run: echo ${{ github.repository }}.wiki
+      run: echo https://${{ github.token }}@github.com/${{ github.repository }}.wiki
     - name: add remote
-      run: git remote add wiki ${{ github.repository }}.wiki
+      run: git remote add wiki https://${{ github.token }}@github.com/${{ github.repository }}.wiki
     - name: fetch
       run: git fetch wiki
     - name: merge
