@@ -1,10 +1,10 @@
-name: sync-from-wiki
+name: sync-to-wiki
 
-on: gollum
+on: push
 
 jobs:
   sync:
-    name: Sync from wiki
+    name: Sync to wiki
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -19,8 +19,10 @@ jobs:
       run: git remote add wiki https://${{ github.token }}@github.com/${{ github.repository }}.wiki
     - name: fetch
       run: git fetch wiki
+    - name: checkout wiki
+      run: git checkout -b wiki-master wiki/master
     - name: merge
-      run: git merge wiki/master
+      run: git merge origin/master
     - name: push
-      run: git push origin master
+      run: git push wiki wiki-master:master
 
